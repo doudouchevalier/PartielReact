@@ -1,8 +1,14 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { fetchMovies } from './api'
+import { useEffect, useState } from 'react';
+// import './App.css';
+import { fetchMovies } from './api';
+import './css/style.css'
+import Navbar from './components/navbar.jsx';
+import Footer from './components/footer';
+import Tendances from './components/tendances';
+import SeriesTV from './components/seriestv';
+import SearchContainer from './components/searchcontainer';
+
+
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -18,10 +24,12 @@ function App() {
     loadMovies();
   }, []);
 
-  return (
+  return (    
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold text-center mb-4">🎬 Films Populaires</h1>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <SearchContainer/>
+      <Navbar/>
+      <Tendances/>
+      <SeriesTV/>
         {movies.map((movie) => (
           <div key={movie.id} className="border rounded-xl p-2 shadow-md">
             <img
@@ -33,7 +41,6 @@ function App() {
           </div>
         ))}
       </div>
-    </div>
   );
 }
 export default App
