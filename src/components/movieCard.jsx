@@ -1,5 +1,5 @@
 // src/components/Movie.jsx
-export default function Movie({ title, posterPath, overview }) {
+export default function MovieCard({ title, posterPath, overview }) {
     return (
       <div className="movie border rounded-xl p-4 shadow-md bg-white">
         <img
@@ -9,6 +9,7 @@ export default function Movie({ title, posterPath, overview }) {
         />
         <h3 className="text-center mt-2 text-lg font-bold">{title}</h3>
         <p className="text-sm text-gray-600 mt-1">{overview.substring(0, 100)}...</p>
+        
       </div>
     );
   }

@@ -6,12 +6,17 @@ import Footer from './components/footer';
 import Tendances from './components/tendances';
 import SeriesTV from './components/seriestv';
 import SearchContainer from './components/searchcontainer';
-import Movie from './components/movie.jsx';
-
+import Movie from './components/movieDetails.jsx';
+import MovieCard from './components/movieCard.jsx';
+import { Link } from 'react-router-dom';
+import API from './js/api.js';
+import { RouterProvider } from 'react-router-dom';
+import router from './routes/root.jsx';
 
 
 function App() {
   const [movies, setMovies] = useState([]);
+  const api = new API();
 
   useEffect(() => {
     const loadMovies = async () => {
@@ -24,21 +29,24 @@ function App() {
     loadMovies();
   }, []);
 
+
   return (    
     <div className="container mx-auto p-4">
-      <SearchContainer/>
-      <Navbar/>
-      <Tendances/>
-      <SeriesTV/>
+      {/* <SearchContainer/>
+      <Navbar/> */}
+      <RouterProvider router={router}/>
+      
         {movies.map((movie) => (
-          <Movie
-          key={movie.id}
-          title={movie.title}
-          posterPath={movie.poster_path}
-          overview={movie.overview}
-        />
+          <div key={movie.id}>
+          <MovieCard
+            title={movie.title}
+            posterPath={movie.poster_path}
+            overview={movie.overview}
+          />
+        </div>
         ))}
       </div>
   );
 }
+
 export default App
