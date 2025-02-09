@@ -42,8 +42,9 @@ export default class API {
       let imgFromAPI = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
       let vote = movie.vote_count == 0 ? "N/A" : parseInt(parseFloat(movie.vote_average) * 10) + "%";
 
+      //<a href="focus.html?id=${movie.id}&type=${type}" >
       divMovie.innerHTML = `
-      <a href="focus.html?id=${movie.id}&type=${type}" >
+      <a href="focus/id:${movie.id}" >
         <img src="${imgFromAPI}">
         <div class="score">
           <p>${vote}</p>
