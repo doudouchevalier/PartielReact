@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import { useEffect } from "react";
 import MovieDetailBanner from "./MovieDetailBanner";
 import Actor from "./Actor";
+import Navbar from "../components/navbar";
 
 export default function MovieDetails() {
     const { id, type } = useParams();
@@ -20,6 +21,8 @@ export default function MovieDetails() {
     });
 
     return (
+        <>
+        <Navbar/>
         <div className="focus-container">
             {
                 movieIsLoading &&
@@ -45,5 +48,6 @@ export default function MovieDetails() {
                 </div>
             }
         </div>
+        </>
     );
 }
