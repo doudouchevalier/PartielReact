@@ -9,10 +9,10 @@ export default function SeriesTV() {
     // Charge les séries TV en fonction de la catégorie sélectionnée
     const container = document.querySelector("#populaires");
     if (container) {
-      container.innerHTML = ""; // 🔥 Efface l'ancien contenu avant d'ajouter le nouveau
+      container.innerHTML = "";
       apiMovie.getDataByTvCategory(container, category);
     }
-  }, [category]); // 🔥 useEffect s'exécute uniquement quand `category` change
+  }, [category]); 
 
   return (
     <div className="wrapper-pop">
@@ -23,7 +23,7 @@ export default function SeriesTV() {
           <button
             className={category === "top_rated" ? "active" : ""}
             id="top_rated"
-            onClick={() => setCategory("top_rated")} // ✅ Change la catégorie à "top_rated"
+            onClick={() => setCategory("top_rated")}
           >
             Mieux notées
           </button>
@@ -31,7 +31,7 @@ export default function SeriesTV() {
           <button
             className={category === "popular" ? "active" : ""}
             id="popular"
-            onClick={() => setCategory("popular")} // ✅ Change la catégorie à "popular"
+            onClick={() => setCategory("popular")}
           >
             Populaires
           </button>

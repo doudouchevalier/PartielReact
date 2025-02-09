@@ -1,11 +1,12 @@
+import { Link } from "react-router-dom"
 export default function Navbar(){
     return(
     <nav className="desktop-nav">
-    <a href="index.html"><i className="fas fa-film"></i></a>
+    <a href="/"><i className="fas fa-film">HOME</i></a>
     <ul>
-      <li><a href="404.jsx">Films</a></li>
-      <li><a href="404.jsx">Séries</a></li>
-      <li><a href="404.jsx">Populaires</a></li>
+      <li><a href="/data/type:movie">Films</a></li>
+      <li><a href="/data/type:tv">Séries</a></li>
+      <li><a href="/data/type:all">Populaires</a></li>
     </ul>
   </nav>
     )
